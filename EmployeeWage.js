@@ -35,16 +35,20 @@ for(var i = 0; i < NUM_OF_WORKING_DAYS; i++){
     empHrs+= getWorkingHrs(empCheck);
 }
 let empWage = empHrs * WAGE_PER_HOUR;
-console.log("Total hrs: "+empHrs+"Emp wage is : " + empWage);
+console.log("Total hrs: "+empHrs+ " Emp wage is : " + empWage);
 
-//Usecase5:
+//Usecase6:
 let totalEmpHrs = 0;
 let totalWorkingDays = 0;
+let empWageArr = new Array();
+function calcDailyWage(empHrs){
+    return empHrs * WAGE_PER_HOUR;
+}
 while(totalEmpHrs < MAX_WORKING_HRS && totalWorkingDays < NUM_OF_WORKING_DAYS){
     totalWorkingDays++;
     let empCheck = Math.floor(Math.random() * 10)%3;
     let empHrs = getWorkingHrs(empCheck);
     totalEmpHrs += empHrs;
 }
-let employeeWage = totalEmpHrs * WAGE_PER_HOUR;
+let employeeWage = calcDailyWage(totalEmpHrs);
 console.log("Total hrs: "+totalEmpHrs+" Total Employee Wage is: "+employeeWage);
